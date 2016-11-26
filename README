@@ -1,0 +1,32 @@
+I frequently find myself wanting to do probability calculations on dice and similar things, but frequently so many dice are involved that the math becomes disinteresting and approximations are sufficient.  Therefore I just run the task over and over and calculate the outcome.  Since I've rewritten the same code enough times, I finally made it into a class which might be useful for other people.
+
+All it requires is a function that returns outcomes.  It logs the outcomes and the number of times the outcome occurred as a percentage.
+
+
+usage:
+test = Iterations('text to display for results', number_of_runs)
+test.run(function_to_test, *args, **kwargs)
+test.display_results() # or test.return_results()
+
+e.g.,
+from random import randrange
+from iterations import Iterations
+
+ITERATIONS = 1000000
+test = Iterations('Results for a six-sided die', ITERATIONS)
+test.run(randrange, 1, 7)
+test.display_results()
+
+Would print:
+
+Results for a six-sided die
+--------------------
+1: 16.6381%
+2: 16.6217%
+3: 16.639100000000003%
+4: 16.6769%
+5: 16.7102%
+6: 16.714000000000002%
+
+
+
